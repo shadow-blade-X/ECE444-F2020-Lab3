@@ -7,6 +7,7 @@ Activity 2:
 ![image](screenshot/activity2-1.JPG)
 ![image](screenshot/activity2-2.JPG)
 ![image](screenshot/activity2-3.JPG)
+![image](screenshot/activity2-4.JPG)
 
 Activity 3:
 SQL database stores data in table and use record. 
