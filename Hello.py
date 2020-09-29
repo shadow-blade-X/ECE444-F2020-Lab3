@@ -14,6 +14,7 @@ appJX.config['SECRET_KEY'] = 'hard to'
 
 class NameForm(Form):
  name = StringField('What is your name?', validators=[Required()])
+ emailAdd = StringField('What is your UofT Email address?', validators=[Required()], render_kw={'type':'email'})
  submit = SubmitField('Submit')
 
 
@@ -27,6 +28,15 @@ def index():
    flash('Looks like you have changed your name!')
   session['name'] = form.name.data
 
+  old_emailAdd = session.get('emailAdd')
+  if old_emailAdd is not None and old_emailAdd != form.emailAdd.data:
+   flash('Looks like you have changed your email!')
+  session['emailAdd'] = form.emailAdd.data
+
+  if not re.fullmatch(r".*@mail.utoronto.ca", session.get('emailAdd')):
+   session['uoftMailWarning']= "123"
+  else:
+   session['uoftMailWarning']= None
   return redirect(url_for('index'))
  return render_template('index.html', form = form, name = session.get('name'), emailAdd=session.get('emailAdd'), uoftMailWarning=session.get('uoftMailWarning'))
 
