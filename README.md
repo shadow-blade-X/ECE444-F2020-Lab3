@@ -1,4 +1,4 @@
-# ECE444-F2020-Lab3
+# ECE444-F2020-Lab4
 
 How to run: 
 In cmd, move to this directory, do:" docker build -t ece444_lab4:latest . " to build the docker image
